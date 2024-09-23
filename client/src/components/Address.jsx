@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import getAddress from '../hookes/getAddressForUser';
 import { FaArrowAltCircleLeft } from "react-icons/fa";
@@ -14,8 +14,11 @@ function Address() {
     const {setAddresses,addresses} = useDataContext();
 
 
+    const [loadingForDelete,setLoadingForDelete] = useState(false);
+
     const handleDelete = async (id)=>{
       if(!confirm("sure to delete")) return 
+      setLoadingForDelete(true);
         try {
           const res = await fetch(`/api/address/deleteAddress/${id}`,{
             method : "DELETE",
@@ -32,6 +35,8 @@ function Address() {
           toast.success(result.data)
         } catch (error) {
           toast.error(error.message)
+        }finally{
+          setLoadingForDelete(false);
         }
     }
 
@@ -45,7 +50,7 @@ function Address() {
            addresses.map(address=>(
               <div key={address._id} className="flex flex-col bg-[aqua] text-black p-6 pt-8 rounded-lg relative" >
                 <button onClick={()=>handleDelete(address._id)} className="absolute top-2 right-2">
-                  <MdDelete className="size-6 hover:text-red-500" />
+                { loadingForDelete ? <span className="loading loading-spinner text-info"></span> :  <MdDelete className="size-6 hover:text-red-500" />}
                 </button>
                 <span>
                   house number : {address.housenumber}
