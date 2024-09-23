@@ -46,6 +46,7 @@ function Header() {
           toast.error(error.message)
       }finally{
           setLoading(false);
+          setInputs({})
       }
   }
 
@@ -61,7 +62,7 @@ function Header() {
             <MdLocationPin className="size-6 text-[aqua]"/> <span className="hidden sm:block"> User | Address</span>
         </Link>
         <div>
-          <button className="bg-[aqua] text-black rounded-lg px-3" onClick={()=>document.getElementById('my_modal_1').showModal()}>create</button>
+          <button className="bg-[aqua] text-black rounded-lg px-3" onClick={()=>{setInputs({});document.getElementById('my_modal_1').showModal()}}>create</button>
           <dialog id="my_modal_1" className="modal">
               <div className="modal-box">
                 <div className="modal-action">

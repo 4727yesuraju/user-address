@@ -7,7 +7,7 @@ input{
 }
 
 tr,td {
-  @apply text-center;
+  @apply text-center w-40 overflow-ellipsis
 }
 
 .animate{

@@ -11,7 +11,11 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/users" element={<>
+            <Header />
+            <Users />
+          </>
+          } />
         <Route path="/address/:username" element={<Address />} />
       </Routes>
       <Toaster />

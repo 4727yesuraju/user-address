@@ -1,8 +1,9 @@
 import express from 'express';
-import { getUseresForTable } from '../controllers/user.js';
+import { deleteUser, getUseresForTable } from '../controllers/user.js';
 
 const router = express.Router();
 
 router.get('/getUsers',getUseresForTable);
+router.delete('/deleteUser/:username',deleteUser);
 
 export default router;  
