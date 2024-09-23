@@ -3,6 +3,8 @@ import {config} from 'dotenv';
 import connectToDB from './db/connectToDB.js';
 config(); //to access env variable
 
+//custom routes 
+import router from './routes/register.js';
 
 const app = express();
 
@@ -10,6 +12,8 @@ const app = express();
 app.get('/test',(req,res)=>{
     res.send("Hello from server :)");
 });
+
+app.use('/api',router);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT,()=>{
