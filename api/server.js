@@ -4,7 +4,9 @@ import connectToDB from './db/connectToDB.js';
 config(); //to access env variable
 
 //custom routes 
-import router from './routes/register.js';
+import registerRouter from './routes/register.js';
+import userRouter from './routes/user.js';
+import addressRouter from './routes/address.js';
 
 const app = express();
 
@@ -13,7 +15,12 @@ app.get('/test',(req,res)=>{
     res.send("Hello from server :)");
 });
 
-app.use('/api',router);
+app.use(express.json()); //to parst incoming request
+
+app.use('/api',registerRouter);
+app.use('/api/user',userRouter);
+app.use('/api/address',addressRouter);
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT,()=>{
