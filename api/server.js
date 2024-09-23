@@ -1,5 +1,6 @@
 import express from 'express';
 import {config} from 'dotenv';
+import connectToDB from './db/connectToDB.js';
 config(); //to access env variable
 
 
@@ -12,5 +13,6 @@ app.get('/test',(req,res)=>{
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT,()=>{
+    connectToDB();
     console.log(`server is running at ${PORT}`);
 })
