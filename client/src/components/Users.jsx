@@ -5,7 +5,6 @@ import Header from './Header';
 
 function Users() {
   const {loading,users} = getUsers();
-  console.log("users : ",users,loading);
   if(loading) return <span className="loading loading-ring loading-lg"></span>
   return (
     <>

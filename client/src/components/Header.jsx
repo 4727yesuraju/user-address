@@ -14,7 +14,6 @@ function Header() {
   }
 
   const {setUsers} = useDataContext();
-  console.log(inputs);
   async function handleSubmit(e){
       e.preventDefault();
       if(!isValid(inputs.username,inputs)) return toast.error("all fields are required")

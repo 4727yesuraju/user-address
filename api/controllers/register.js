@@ -24,16 +24,11 @@ export const register = async (req,res)=>{
             user.addresses.push(newAddress._id);
         }
 
-        // await user.save();
-        // await newMessage.save();
 
         await Promise.all([user.save(),newAddress.save()]);
 
         res.status(201).json({
-            data :{
-                username,
-                address
-            }
+            data : user
         })
     } catch (error) {
         res.status(error.status || 500).json({

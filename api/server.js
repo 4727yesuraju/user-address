@@ -2,6 +2,9 @@ import express from 'express';
 import {config} from 'dotenv';
 import connectToDB from './db/connectToDB.js';
 config(); //to access env variable
+import path from 'path';
+
+const __dirname = path.resolve();
 
 //custom routes 
 import registerRouter from './routes/register.js';
@@ -21,6 +24,11 @@ app.use('/api',registerRouter);
 app.use('/api/user',userRouter);
 app.use('/api/address',addressRouter);
 
+app.use(express.static(path.join(__dirname,"/client/dist")));
+
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname,"client","dist","index.html"))
+})
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT,()=>{

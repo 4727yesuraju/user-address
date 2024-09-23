@@ -35,7 +35,6 @@ function Address() {
         }
     }
 
-    console.log(addresses)
     if(loading) return <span className="loading loading-ring loading-lg"></span>
     return (
       <div className="flex gap-2 flex-wrap items-center justify-center pt-6">
