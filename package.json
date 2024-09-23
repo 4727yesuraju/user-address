@@ -2,11 +2,16 @@
   "name": "address",
   "version": "1.0.0",
   "main": "index.js",
+  "type" : "module",
   "scripts": {
-    "start" : "node api/server.js"
+    "start": "node api/server.js",
+    "watch": "node --watch api/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
 }
