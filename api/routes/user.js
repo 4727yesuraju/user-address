@@ -3,6 +3,6 @@ import { getUseresForTable } from '../controllers/user.js';
 
 const router = express.Router();
 
-router.post('/getUsers',getUseresForTable);
+router.get('/getUsers',getUseresForTable);
 
 export default router;  

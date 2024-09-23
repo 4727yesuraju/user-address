@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input{
+  @apply text-center outline-none rounded-lg py-2
+}
+
+tr,td {
+  @apply text-center;
+}
+
+.animate{
+  animation: anime 1s linear infinite;
+}
+.animate:hover{
+  animation: none;
+}
+
+@keyframes anime {
+  0%{
+      transform: translateX(-4px);
+  }
+  25%{
+      transform: translateX(0px);
+  }
+  50%{
+      transform: translateX(4px);
+  }
+  75%{
+      transform: translateX(0px);
+  }
+  100%{
+      transform: translateX(-4px);
+  }
+}
+
+::-webkit-scrollbar{
+  display:none;
+}
+

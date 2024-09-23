@@ -1,8 +1,9 @@
 import express from 'express';
-import { getAddressForUser } from '../controllers/address.js';
+import { deleteAddress, getAddressForUser } from '../controllers/address.js';
 
 const router = express.Router();
 
-router.post('/getAddress/:username',getAddressForUser);
+router.get('/getAddress/:username',getAddressForUser);
+router.delete('/deleteAddress/:id',deleteAddress);
 
 export default router;  
