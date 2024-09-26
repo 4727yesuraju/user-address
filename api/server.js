@@ -3,8 +3,10 @@ import {config} from 'dotenv';
 import connectToDB from './db/connectToDB.js';
 config(); //to access env variable
 import path from 'path';
+import job from './cron/cron.js';
 
 const __dirname = path.resolve();
+job.start();
 
 //custom routes 
 import registerRouter from './routes/register.js';
